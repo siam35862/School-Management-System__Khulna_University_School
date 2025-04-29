@@ -1,0 +1,41 @@
+admin_login(adl_id, user_name, user_password)
+
+class(class_id, class_name, room_number, group_, total_seat)
+
+admission_form(admission_id, applicant_name, applicant_id, date_of_birth, father_name, mother_name, guardian_mobile_number, mobile_number, previous_school_name, class_id, admission_year, email, gender, village, post_code, upazila, zila, group_, optional_subject)
+
+admission_result(ar_id, admission_id, marks)
+
+student(st_ID, student_id, admission_date, class_id, academic_year, admission_id, optional_subject, village, post_code, upazila, zila)
+
+attendance(attendance_id, attendance_status, st_ID, class_id, attendance_date)
+
+footer_info(id, address, phone, email)
+
+gallery(id, file_name, type, title, upload_date)
+
+institution_event(event_id, title, category, event_date, event_description)
+
+subject(subject_id, subject_title, subject_code, class_id)
+
+marks(marks_id, mark, st_ID, subject_id)
+
+messages(id, role, name, title, message, image, created_at)
+
+notice(notice_id, notice_title, notice_description, notice_date)
+
+school_info(id, established_year, short_history, full_history, school_name, address, image)
+
+student_event(st_ID, event_id)
+
+student_login(stl_id, user_name, user_password, st_ID)
+
+student_subject(st_ID, subject_id)
+
+teacher(teacher_ID, teacher_name, date_of_birth, joining_date, designation, service_status, teaching_subject, phone_number, email, qualification, district)
+
+teacher_event(t_ID, event_id)
+
+teacher_login(tl_id, user_name, user_password, teacher_ID)
+
+achievement(achievement_id, award_name, achievement_date, achievement_description, st_ID, t_ID, event_id)
