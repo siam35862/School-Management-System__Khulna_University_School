@@ -128,8 +128,7 @@ INSERT INTO gallery (id, file_name, type, upload_date, title) VALUES
 (10, 'uploads/photos/680ffdcf1e8dc2.74557140.jpg', 'photo', '2025-04-29 04:14:39', 'Flower'),
 (8, 'uploads/photos/680ff6ea578316.57449313.jpg', 'photo', '2025-04-29 03:45:14', 'Khulna University School'),
 (7, 'uploads/photos/680ff4698ef343.44081869.png', 'photo', '2025-04-29 03:34:33', 'Our Honorable Headmaster'),
-(12, 'uploads/photos/681005bdbf0a79.32384806.jpg', 'photo', '2025-04-29 04:48:29', 'Khulna University Campus'),
-(18, 'uploads/videos/68100ab1a63794.17031446.mp4', 'video', '2025-04-29 05:09:37', 'fdghdfg');
+(12, 'uploads/photos/681005bdbf0a79.32384806.jpg', 'photo', '2025-04-29 04:48:29', 'Khulna University Campus'));
 
 INSERT INTO institution_event (event_id, title, category, event_date, event_description) VALUES
 (1, 'Science Fair 2024', 'Academic', '2024-04-15', 'An exhibition where students present their innovative science projects.'),
