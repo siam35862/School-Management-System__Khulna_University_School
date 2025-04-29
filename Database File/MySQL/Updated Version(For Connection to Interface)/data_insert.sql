@@ -527,7 +527,7 @@ INSERT INTO teacher (teacher_ID, teacher_name, date_of_birth, joining_date, desi
 (19, 'Md. Sayem Rana', '1996-02-22', '2025-03-30', 'Assistant Teacher', 'active', 'Accounting', '01711223345', 'mdsiamahmed35862@gmail.com', 'B.Sc in Accounting', 'Khulna'),
 (20, 'Md. Sayem Hossain', '2025-04-02', '2025-04-03', 'Assistant Teacher', 'active', 'Chemistry', '01711223344', 'mdsiamahmed35862@gmail.com', 'M.Sc. in Chemistry', 'Kurigram');
 
-INSERT INTO teacher_event (t_ID, event_id) VALUES
+INSERT INTO teacher_event (teacher_ID, event_id) VALUES
 (1, 1),
 (5, 1),
 (1, 2),
@@ -563,7 +563,7 @@ INSERT INTO teacher_login (tl_id, user_name, user_password, teacher_ID) VALUES
 (21, 'd63jQO', 'nfbbrIYR', 19),
 (22, 'lNn9Qj', '5Zgvvlpl', 20);
 
-INSERT INTO achievement (achievement_id, award_name, achievement_date, achievement_description, st_ID, t_ID, event_id) VALUES
+INSERT INTO achievement (achievement_id, award_name, achievement_date, achievement_description, st_ID, teacher_ID, event_id) VALUES
 (1, 'Best Science Project', '2024-04-15', 'Awarded for outstanding sports performance during the annual event.', 1, NULL, 1),
 (3, 'Best Cultural Performer', '2024-06-20', 'Honored for outstanding leadership in organizing school events.', 3, NULL, 3),
 (4, 'Tech Innovator Award', '2024-07-05', 'Awarded first place in the prestigious inter-school debate competition.', NULL, 1, NULL),

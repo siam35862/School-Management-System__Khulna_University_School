@@ -34,7 +34,7 @@ student_subject(st_ID, subject_id)
 
 teacher(teacher_ID, teacher_name, date_of_birth, joining_date, designation, service_status, teaching_subject, phone_number, email, qualification, district)
 
-teacher_event(t_ID, event_id)
+teacher_event(teacher_ID, event_id)
 
 teacher_login(tl_id, user_name, user_password, teacher_ID)
 
