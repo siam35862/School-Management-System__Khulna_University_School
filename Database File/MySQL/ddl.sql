@@ -1,5 +1,4 @@
-
-
+IF NOT EXISTS CREATE DATABASE school_management_system;
 
 CREATE TABLE admin_login (
   adl_id int NOT NULL AUTO_INCREMENT,
