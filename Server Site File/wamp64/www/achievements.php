@@ -5,11 +5,12 @@ include('nav.php');
 include 'db_connection.php';
 // Fetch achievements data from the database with student name
 $sql = "SELECT a.achievement_id, a.award_name, a.achievement_date, a.achievement_description, a.st_ID, a.t_ID, a.event_id, 
-        t.teacher_name, s.student_id, af.applicant_name, t.phone_number AS teacher_phone, t.email AS teacher_email
+        t.teacher_name, s.student_id,c.class_name,c.group_, af.applicant_name, t.phone_number AS teacher_phone, t.email AS teacher_email
         FROM achievement a
         LEFT JOIN teacher t ON a.t_ID = t.teacher_ID
         LEFT JOIN student s ON a.st_ID = s.st_ID
         LEFT JOIN admission_form af ON s.admission_id = af.admission_id
+        LEFT JOIN class c ON c.class_id=s.class_id
         ORDER BY a.achievement_date DESC";
 $result = $conn->query($sql);
 ?>
@@ -143,6 +144,8 @@ $result = $conn->query($sql);
             </p>
           <?php else: ?>
             <p class="student-info"><strong>Student ID:</strong> <?= htmlspecialchars($row['student_id']) ?></p>
+            <p class="student-info"><strong>Class:</strong> <?= htmlspecialchars($row['class_name']) ?></p>
+            <p class="student-info"><strong>Group:</strong> <?= htmlspecialchars($row['group_']) ?></p>
           <?php endif; ?>
         </div>
       </div>

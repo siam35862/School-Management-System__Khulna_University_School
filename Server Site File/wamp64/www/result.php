@@ -1,20 +1,24 @@
+<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="footer.css">
 <?php
 session_start();
 
 // Connect to the database
 include 'db_connection.php';
 
-$username = $_POST['username'] ?? '';
-$password = $_POST['password'] ?? '';
+$username__ = $_POST['username'] ?? '';
+$password__ = $_POST['password'] ?? '';
 
 // Validate login
 $stmt = $conn->prepare("SELECT st_ID FROM student_login WHERE user_name=? AND user_password=?");
-$stmt->bind_param("ss", $username, $password);
+$stmt->bind_param("ss", $username__, $password__);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows == 0) {
+    include 'nav.php';
     echo "<p style='color:red; text-align:center;'>Invalid login credentials!</p>";
+    
     include 'footer.php';
     exit;
 }
@@ -43,7 +47,7 @@ $school_name = $schoolRow['school_name'] ?? 'School Name';
 // Define student variables
 $class_id = $student['class_id'] ?? '';
 $class_name = $student['class_name'] ?? '';
-$optional_subject = ($class_id == 8) ? 'AGRICULTURE STUDIES' : ($student['optional_subject'] ?? '');
+$optional_subject = ($class_name == 'Eight') ? 'AGRICULTURE STUDIES' : ($student['optional_subject'] ?? '');
 $group = $student['group_'] ?? 'N/A';
 $academic_year = $student['academic_year'] ?? '';
 $student_id = $student['student_id'] ?? '';
@@ -89,7 +93,7 @@ $additional_subject_marks = 0;
 
 // Fetch all subjects for the class with marks (if any)
 $stmt = $conn->prepare("
-    SELECT s.subject_id, s.subject_title, s.subject_code, AVG(m.mark) AS mark
+    SELECT s.subject_id, s.subject_title, s.subject_code, m.mark AS mark
     FROM subject s
     LEFT JOIN marks m ON s.subject_id = m.subject_id AND m.st_ID = ?
     WHERE s.class_id = ?
@@ -116,7 +120,7 @@ while ($row = $marksResult->fetch_assoc()) {
             'mark' => $mark,
             'gpa' => $gpa
         ];
-    } elseif ($is_optional && in_array($class_id, [8, 9, 10])) {
+    } elseif ($is_optional) {
         if ($gpa > 2.0) {
             $optional_points = max(0, $gpa - 2.0);
         }
@@ -302,7 +306,8 @@ $status = $has_fail_in_main ? 'FAILED' : 'PASSED';
     <?php endif; ?>
 
     <div class="print-btn" style="display: flex; justify-content: center; gap: 20px;">
-        <form action="internal_result.php" method="post" onsubmit="sessionStorage.clear();">
+        <form action="internal_result.php"  onsubmit="sessionStorage.clear();">
+           
             <button type="submit" style="background-color:#007bff;">🔍 Search Again</button>
         </form>
         <button onclick="window.print()">🖨️ Print / Save as PDF</button>

@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $classId = $data['class_id'];
+        $className=$data['class_name'];
         $marks = $data['marks'];
         $group = $data['group_'];
         $totalSeat = $data['total_seat'];
@@ -60,38 +61,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo "
         <div class='info'>
-            <label>Applicant ID</label>
-            <span>{$data['applicant_id']}</span>
+            <label>Applicant ID: {$data['applicant_id']}</label>
+           
 
-            <label>Applicant Name</label>
-            <span>{$data['applicant_name']}</span>
+            <label>Applicant Name: {$data['applicant_name']}</label>
+           
 
-            <label>Father's Name</label>
-            <span>{$data['father_name']}</span>
+            <label>Father's Name: {$data['father_name']}</label>
+   
 
-            <label>Mother's Name</label>
-            <span>{$data['mother_name']}</span>
+            <label>Mother's Name: {$data['mother_name']}</label>
+            
 
-            <label>Date of Birth</label>
-            <span>{$data['date_of_birth']}</span>
+            <label>Date of Birth: {$data['date_of_birth']}</label>
+        
 
-            <label>Applying Class</label>
-            <span>{$data['class_name']}</span>";
+            <label>Applying Class: {$data['class_name']}</label>";
+            
 
-        if ($classId == 9) {
-            echo "<label>Group</label>
-                  <span>{$data['group_']}</span>";
+        if ($className == 'Nine') {
+            echo"<label>Group: {$data['group_']}</label>";
         }
 
-        echo "
-            <label>Obtained Mark</label>
-            <span>{$marks}</span>
+        echo"
+            <label>Obtained Mark: {$marks}</label>
+          
 
-            <label>Rank</label>
-            <span>{$rank}</span>
+            <label>Rank: {$rank}</label>
+      
 
-            <label>Status</label>
-            <span>{$status}</span>
+            <label>Status: {$status}</label>
+           
         </div>";
     } else {
         echo "<div class='message'>Result not published yet or applicant not found.</div>";

@@ -29,7 +29,7 @@ if ($result && $row = $result->fetch_assoc()) {
 }
 
 // Generate year options with current year first and selected
-$yearOptions = "<option value='$currentYear' " . ($selectedYear == $currentYear ? 'selected' : '') . ">$currentYear</option>";
+$yearOptions = ($selectedYear == $currentYear ? 'selected' : '') . ">$currentYear</option>";
 for ($y = $currentYear - 1; $y >= $establishedYear; $y--) {
   $yearOptions .= "<option value='$y' " . ($selectedYear == $y ? 'selected' : '') . ">$y</option>";
 }

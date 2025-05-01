@@ -1,3 +1,4 @@
+<?php include('nav.php'); ?>
 <?php
 session_start();
 if (!isset($_SESSION['admin_logged_in']) || !$_SESSION['admin_logged_in'] || !isset($_SESSION['adl_id'])) {
@@ -570,7 +571,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-?>
+
 ?>
 
 <!DOCTYPE html>
@@ -1144,7 +1145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <?php include('nav.php'); ?>
+   
 
     <div class="container">
         <h1><?php echo $school_row['school_name']; ?></h1>

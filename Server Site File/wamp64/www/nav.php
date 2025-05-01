@@ -101,7 +101,7 @@ if ($noticeResult && $row = $noticeResult->fetch_assoc()) {
           <li><a href="passed_student_list.php">Past Students List</a></li>
         </ul>
       </li>
-      <li><a href="#">Exam Result</a>
+      <li><a href="#">Result</a>
         <ul>
           <li><a href="admission_result.php">Admission Result</a></li>
           <li><a href="internal_result.php">Internal Result</a></li>

@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="footer.css">
 
 <style>
@@ -105,21 +104,21 @@ include 'nav.php';
 $error = "";
 
 // Set default empty values to prevent undefined index warnings
-$username = $_POST['username'] ?? '';
-$class_name = $_POST['class'] ?? '';
+$username_ = $_POST['username'] ?? '';
+$class_id = $_POST['class'] ?? '';
 $roll = $_POST['roll'] ?? '';
-$password = $_POST['password'] ?? '';
+$password_ = $_POST['password'] ?? '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $error = "";
   include 'db_connection.php';
 
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-  // Step 1: Check login
   $stmt = $conn->prepare("SELECT st_ID FROM student_login WHERE user_name = ? AND user_password = ?");
-  $stmt->bind_param("ss", $username, $password);
+  $stmt->bind_param("ss", $username_, $password_); // 'ss' means two string parameters
   $stmt->execute();
   $stmt->store_result();
 
@@ -136,37 +135,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($student = $student_result->fetch_assoc()) {
       $student_id = $student['student_id'];
-      $class_id = $student['class_id'];
+      $db_class_id = $student['class_id'];
 
-      // Step 3: Get class info
-      $class_query = $conn->prepare("SELECT class_name, group_ FROM class WHERE class_id = ?");
-      $class_query->bind_param("i", $class_id);
-      $class_query->execute();
-      $class_result = $class_query->get_result();
 
-      if ($class_row = $class_result->fetch_assoc()) {
-        $db_class_name = $class_row['class_name'];
-        $db_group = $class_row['group_'];
 
-        // Step 4: Match class and roll
-        if ($class_name == $db_class_name && $roll == $student_id) {
-          // Redirect to result page with POST
-          echo "
+      // Step 4: Match class and roll
+      if ($class_id == $db_class_id && $roll == $student_id) {
+        // Redirect to result page with POST
+        echo "
           <form id='redirectForm' action='result.php' method='post'>
-            <input type='hidden' name='username' value='$username'>
+            <input type='hidden' name='username' value='$username_'>
             <input type='hidden' name='class' value='$class_name'>
             <input type='hidden' name='roll' value='$roll'>
-            <input type='hidden' name='password' value='$password'>
+            <input type='hidden' name='password' value='$password_'>
           </form>
           <script>document.getElementById('redirectForm').submit();</script>
           ";
-          exit;
-        } else {
-          $error = "Result Not Found. Enter correct information.";
-        }
+        exit;
       } else {
-        $error = "Class information not found.";
+        $error = "Result Not Found. Enter correct information.";
       }
+
     } else {
       $error = "Student not found.";
     }
@@ -196,14 +185,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <select id="class" name="class" required>
       <option value="" disabled selected>Select class</option>
       <?php
-        $conn = new mysqli("localhost", "root", "", "school_management_system");
-        $class_query = "SELECT DISTINCT class_name, group_ FROM class ORDER BY class_name";
-        $result = $conn->query($class_query);
-        while ($row = $result->fetch_assoc()) {
-          $display = $row['class_name'] . " - " . $row['group_'];
-          echo "<option value='{$row['class_name']}'>{$display}</option>";
-        }
-        $conn->close();
+      include 'db_connection.php';
+      $class_query = "SELECT DISTINCT class_name,class_id, group_ FROM class ORDER BY class_name";
+      $result = $conn->query($class_query);
+      while ($row = $result->fetch_assoc()) {
+        $display = $row['class_name'] . " - " . $row['group_'];
+        echo "<option value='{$row['class_id']}'>{$display}</option>";
+      }
+      $conn->close();
       ?>
     </select>
 
