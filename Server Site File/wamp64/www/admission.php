@@ -339,7 +339,7 @@ $conn->close();
   </div>
 
   <fieldset class="address-section">
-    <legend style="font-weight:bold; padding: 10px 0;">Current Address</legend>
+    <legend style="font-weight:bold; padding: 10px 0;">Present Address</legend>
     <div class="form-row">
       <label class="required-field">Village:</label>
       <input type="text" name="village" required value="<?= isset($_POST['village']) ? htmlspecialchars($_POST['village']) : '' ?>">
