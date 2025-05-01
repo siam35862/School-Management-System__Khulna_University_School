@@ -218,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        h2 {
+        h1 {
             color: #004080;
             text-align: center;
         }
@@ -259,16 +259,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h2>Student Admission</h2>
+        <h1>Student Admission</h1>
         
         <div class="applicant-info">
-            <h3>Applicant Information</h3>
+        <legend style="font-weight:bold; padding: 10px 0;color:indigo;font-size: 22px;">Applicant Information:</legend>
             <p><strong>Name:</strong> <?php echo htmlspecialchars($applicant_data['applicant_name']); ?></p>
             <p><strong>Applicant ID:</strong> <?php echo htmlspecialchars($applicant_data['applicant_id']); ?></p>
             <p><strong>Father's Name:</strong> <?php echo htmlspecialchars($applicant_data['father_name']); ?></p>
             <p><strong>Mother's Name:</strong> <?php echo htmlspecialchars($applicant_data['mother_name']); ?></p>
         </div>
-        
+        <legend style="font-weight:bold; padding: 10px 0;color:indigo;font-size: 22px;">Permanent Address:</legend>
         <form method="POST" action="">
             <div class="form-group">
                 <label for="village">Village:</label>
