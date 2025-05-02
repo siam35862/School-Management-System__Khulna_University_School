@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXISTS school_management_system;
+
+
 
 CREATE TABLE admin_login (
   adl_id int NOT NULL AUTO_INCREMENT,
@@ -214,10 +215,10 @@ CREATE TABLE teacher (
 ) ENGINE = InnoDB;
 
 CREATE TABLE teacher_event (
-  teacher_ID int NOT NULL,
+  t_ID int NOT NULL,
   event_id int NOT NULL,
-  PRIMARY KEY(teacher_id, event_id),
-  FOREIGN KEY (teacher_ID) REFERENCES teacher (teacher_ID) ON DELETE CASCADE,
+  PRIMARY KEY(t_id, event_id),
+  FOREIGN KEY (t_ID) REFERENCES teacher (teacher_ID) ON DELETE CASCADE,
   FOREIGN KEY (event_id) REFERENCES institution_event (event_id) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
@@ -238,11 +239,11 @@ CREATE TABLE achievement (
   achievement_date date NOT NULL,
   achievement_description text,
   st_ID int DEFAULT NULL,
-  teacher_ID int DEFAULT NULL,
+  t_ID int DEFAULT NULL,
   event_id int DEFAULT NULL,
   PRIMARY KEY (achievement_id),
   FOREIGN KEY (st_ID) REFERENCES student (st_ID) ON DELETE CASCADE,
-  FOREIGN KEY (teacher_ID) REFERENCES teacher (teacher_ID) ON DELETE CASCADE,
+  FOREIGN KEY (t_ID) REFERENCES teacher (teacher_ID) ON DELETE CASCADE,
   FOREIGN KEY (event_id) REFERENCES institution_event (event_id) ON DELETE
   SET NULL
 ) ENGINE = InnoDB;

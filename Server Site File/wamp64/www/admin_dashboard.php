@@ -493,7 +493,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
             $maxFileSize = 50 * 1024 * 1024; // 5MB for photos
         } else { // video
-            $allowedExtensions = ['mp4', 'avi', 'mov', 'wmv', 'webm'];
+            $allowedExtensions = ['mp4', 'avi', 'mkv', 'wmv', 'webm'];
             $maxFileSize = 5000 * 1024 * 1024; // 50MB for videos
         }
 
@@ -2283,9 +2283,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         function updateFileInfo() {
             if (photoRadio.checked) {
-                fileTypeInfo.textContent = "Allowed photo types: JPG, JPEG, PNG, GIF (Max 5MB)";
+                fileTypeInfo.textContent = "Allowed photo types: JPG, JPEG, PNG, GIF (Max 10MB)";
             } else {
-                fileTypeInfo.textContent = "Allowed video types: MP4, AVI, MOV, WMV, WEBM (Max 50MB)";
+                fileTypeInfo.textContent = "Allowed video types: MP4, AVI, MKV, WMV, WEBM (Max 100MB)";
             }
         }
 
