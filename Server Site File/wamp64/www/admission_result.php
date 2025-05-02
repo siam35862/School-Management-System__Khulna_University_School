@@ -79,7 +79,7 @@
         <label for="applicantId">Applicant ID</label>
         <input type="text" id="applicantId" name="applicantId" required>
 
-        <label for="academicyear">Academic Year</label>
+        <label for="academicyear">Admission Year</label>
         <input type="number" id="academicyear" name="academicyear" required>
 
         <label for="dob">Date of Birth</label>

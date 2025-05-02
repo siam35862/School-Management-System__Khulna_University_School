@@ -3,7 +3,7 @@ include 'db_connection.php';
 $teachers = [];
 
 if (!$conn->connect_error) {
-  $sql = "SELECT * FROM teacher ORDER BY service_status, designation";
+  $sql = "SELECT * FROM teacher ORDER BY joining_date ASC";
   $result = $conn->query($sql);
 
   if ($result && $result->num_rows > 0) {

@@ -54,7 +54,7 @@ $conn->close();
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Passed Student List</title>
+  <title>Past Student List</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -127,7 +127,7 @@ $conn->close();
 </head>
 <body>
   <div class="content">
-    <h1>Passed Student List</h1>
+    <h1>Past Student List</h1>
 
     <form method="POST" class="form-box">
       <label for="class">Select Class:</label>
