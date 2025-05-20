@@ -68,7 +68,7 @@ A comprehensive web-based  management system built with PHP and MySQL, designed 
    ```
 
 3. **Configure Database Connection**
-   - Open `assets/database.php` and update the database credentials:
+   - Open `db_connection.php` and update the database credentials:
      ```php
      define('DB_HOST', 'localhost');
      define('DB_USER', 'your_username');  // default 'root' for WAMP
